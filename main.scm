@@ -2,7 +2,7 @@
   (iterate-a list-a list-b ()))
 
 (define (iterate-a list-a b tuple-list)
-  (cond ((or (null? list-a) (null? b)) tuple-list)
+  (cond ((null? list-a) tuple-list)
         ((not (list? list-a)) (iterate-b list-a b tuple-list))
         (else
           (iterate-a (cdr list-a) b (iterate-b (car list-a) b tuple-list)))))
