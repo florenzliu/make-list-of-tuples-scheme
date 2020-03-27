@@ -9,13 +9,13 @@
 
 (define (iterate-b element list-b iter-list)
   (cond ((null? list-b) iter-list)
-        ((not (list? list-b)) (cons iter-list (list element list-b)))
+        ((not (list? list-b)) (append iter-list (list element list-b)))
         (else 
           (if (null? iter-list) 
-            (iterate-b element (cdr list-b) (list element (car list-b)))
-            (iterate-b element (cdr list-b) (cons iter-list (list element (car list-b))))))))
+            (iterate-b element (cdr list-b) (list (list element (car list-b))))
+            (iterate-b element (cdr list-b) (append iter-list (list (list element (car list-b)))))))))
 
-;(display (func (list 1 2 3) (list 4 5 6)))  (newline) 
+(display (func (list 1 2 3) (list 4 5 6)))  (newline) 
 ;(display (func (list 1 2 3) (list 4 5))) (newline)
 ;(display (func (list ) (list 4 5))) (newline)
 ;(display (func (list 1 2) (list ))) (newline)
